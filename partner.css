@@ -32,3 +32,10 @@ body.partner-edition{--bg:#f7fcfb;--ink:#0b2537;--muted:#4a6575;--teal:#007e79;-
  .partner-edition :is(.process-track,.advantage-grid) article,.partner-edition .pillar-art span{transition:none}
  .partner-edition :is(.process-track,.advantage-grid) article:hover{transform:none}
 }
+
+/* Supplied DREAMS advantage artwork: preserve the full 2:1 composition. */
+.partner-edition .pillar-art.pillar-photo{height:auto;min-height:0;aspect-ratio:2/1;align-self:center;background:#071c2b}
+.partner-edition .pillar-art.pillar-photo::before,.partner-edition .pillar-art.pillar-photo::after{display:none}
+.partner-edition .pillar-photo img{display:block;width:100%;height:100%;object-fit:contain;transition:filter .28s ease}
+@media(hover:hover){.partner-edition .advantage-grid article:hover .pillar-photo img{filter:brightness(1.07)}}
+@media(prefers-reduced-motion:reduce){.partner-edition .pillar-photo img{transition:none}}
