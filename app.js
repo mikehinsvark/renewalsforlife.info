@@ -1,4 +1,8 @@
 'use strict';
+// Default only the full overview to 1.25x; viewers can still change speed.
+window._wq=window._wq||[];
+window._wq.push({id:'mvpjltt2t2',onReady:function(video){video.playbackRate(1.25);}});
+
 const $=id=>document.getElementById(id);
 const full=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n);
 const short=n=>Math.abs(n)>=1e6?'$'+(n/1e6).toFixed(2)+'M':Math.abs(n)>=1000?'$'+(n/1000).toFixed(n%1000===0?0:1)+'K':full(n);
@@ -46,7 +50,7 @@ function playVideo(){
   const video=document.createElement('video');video.src='assets/intro.mp4';video.controls=true;video.playsInline=true;video.preload='metadata';video.setAttribute('aria-label','The Income You Keep — 2-minute introduction');
   $('video-frame').replaceChildren(video);video.focus();const play=video.play();if(play)play.catch(()=>{$('video-hint').textContent='Use the player controls to start the introduction.';});
  }else{
-  const frame=document.createElement('iframe');frame.src='https://fast.wistia.net/embed/iframe/mvpjltt2t2?autoPlay=true&playerColor=ffd15a';frame.title='Renewals for Life full overview';frame.allow='autoplay; fullscreen; picture-in-picture';frame.allowFullscreen=true;$('video-frame').replaceChildren(frame);frame.focus();
+  const frame=document.createElement('iframe');frame.className='wistia_embed';frame.src='https://fast.wistia.net/embed/iframe/mvpjltt2t2?autoPlay=true&playerColor=ffd15a';frame.title='Renewals for Life full overview';frame.allow='autoplay; fullscreen; picture-in-picture';frame.allowFullscreen=true;$('video-frame').replaceChildren(frame);frame.focus();
  }
 }
 function selectVideo(kind){
